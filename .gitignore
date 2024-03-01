@@ -1,0 +1,9 @@
+.vscode/**
+!c_cpp_properties.json
+!launch.json
+!tasks.json
+
+ac-library/**
+
+*.in
+*.out
