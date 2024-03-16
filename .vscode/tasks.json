@@ -9,6 +9,8 @@
             },
             "command": "g++",
             "args": [
+                "-I",
+                "${workspaceFolder}/ac-library/",
                 "-g",
                 "-O0",
                 "-Wall",
