@@ -120,25 +120,25 @@ int main()
     string S;
     cin >> S;
 
-    int flag = 0;
-    rep(i, 0, S.size())
+    if (S[0] != '<')
     {
-        if (S[0] != '<')
-        {
-            cout << "No" << endl;
-            return 0;
-        }
-        else if (S[S.size() - 1] != '>')
-        {
-            cout << "No" << endl;
-            return 0;
-        }
-        else if (S[i] == '=')
-            flag++;
+        cout << "No" << endl;
+        return 0;
+    }
+    else if (S[S.size() - 1] != '>')
+    {
+        cout << "No" << endl;
+        return 0;
     }
 
-    if (flag == S.size() - 2)
-        cout << "Yes" << endl;
-    else
-        cout << "No" << endl;
+    rep(i, 1, S.size() - 1)
+    {
+        if (S[i] != '=')
+        {
+            cout << "No" << endl;
+            return 0;
+        }
+    }
+
+    cout << "Yes" << endl;
 }
