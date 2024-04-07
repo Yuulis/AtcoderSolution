@@ -1,0 +1,20 @@
+{
+  "contest": {
+    "id": "ahc031",
+    "title": "MC Digital Programming Contest 2024（AtCoder Heuristic Contest 031）",
+    "url": "https://atcoder.jp/contests/ahc031"
+  },
+  "tasks": [
+    {
+      "id": "ahc031_a",
+      "label": "A",
+      "title": "Event Hall",
+      "url": "https://atcoder.jp/contests/ahc031/tasks/ahc031_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
