@@ -1,0 +1,53 @@
+{
+  "contest": {
+    "id": "joi2024yo1c",
+    "title": "JOI 2023/2024 一次予選 (第3回) 過去問",
+    "url": "https://atcoder.jp/contests/joi2024yo1c"
+  },
+  "tasks": [
+    {
+      "id": "joi2024_yo1c_a",
+      "label": "A",
+      "title": "分 (Minutes)",
+      "url": "https://atcoder.jp/contests/joi2024yo1c/tasks/joi2024_yo1c_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2024_yo1c_b",
+      "label": "B",
+      "title": "桁 (Digit)",
+      "url": "https://atcoder.jp/contests/joi2024yo1c/tasks/joi2024_yo1c_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2024_yo1c_c",
+      "label": "C",
+      "title": "揃った文字 (Matched Letters)",
+      "url": "https://atcoder.jp/contests/joi2024yo1c/tasks/joi2024_yo1c_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "joi2024_yo1c_d",
+      "label": "D",
+      "title": "差 (Difference)",
+      "url": "https://atcoder.jp/contests/joi2024yo1c/tasks/joi2024_yo1c_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
