@@ -3,14 +3,14 @@
         {
             "name": "WSL",
             "intelliSenseMode": "gcc-x64",
-            "compilerPath": "/usr/bin/gcc",
+            "compilerPath": "/usr/bin/gcc-12",
             "includePath": [
                 "${workspaceFolder}/**",
                 "${workspaceFolder}/ac-library/"
             ],
             "defines": [],
             "cStandard": "c11",
-            "cppStandard": "c++17"
+            "cppStandard": "c++23"
         }
     ],
     "version": 4
