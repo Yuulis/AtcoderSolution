@@ -1,6 +1,6 @@
 #include <string>
 
-bool isPalindrome(std::string s)
+bool is_palindrome(std::string s)
 {
     int l = s.size();
     for (int i = 0; i < l / 2; i++)
