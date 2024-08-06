@@ -1,7 +1,6 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <string>
 
-bool isPalindrome(string s)
+bool isPalindrome(std::string s)
 {
     int l = s.size();
     for (int i = 0; i < l / 2; i++)
