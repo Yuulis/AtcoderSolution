@@ -1,48 +1,71 @@
-#include <bits/stdc++.h>
-using namespace std;
+#include <iostream>
+#include <vector>
+#include <utility>
+#include <queue>
+#include <functional>
 
-using ll = long long;
-constexpr auto INF = 1e+9;
+template <class T>
+using Graph = std::vector<std::vector<T>>;
+using Pair_edge = std::pair<long long, int>;
+
+constexpr long long INFL = 1LL << 60;
+
+template <typename T>
+inline bool chmin(T &a, T b) { return ((a > b) ? (a = b, true) : (false)); }
 
 struct Edge
 {
-    ll to;
-    ll cost;
+    int to;
+    long long cost;
 };
 
-using Graph = vector<vector<Edge>>;
-using Pair = pair<ll, ll>; // { distance, from }
-
-// ダイクストラ法(基本実装)
-// distances は頂点数と同じサイズ, 全要素 INF で初期化しておく
-void Dijkstra(const Graph &graph, vector<ll> &distances, ll startIndex)
+// Solve the shortest path problem from the start point in the graph.
+void Dijkstra(const Graph<Edge> &graph, std::vector<long long> &dist, const int start)
 {
-    // 「現時点での最短距離, 頂点」の順に取り出す priority_queue
-    // デフォルトの priority_queue は降順に取り出すため greater を使う
-    priority_queue<Pair, vector<Pair>, greater<Pair>> p_queue;
-    p_queue.emplace((distances[startIndex] = 0), startIndex);
+    std::priority_queue<Pair_edge, std::vector<Pair_edge>, std::greater<Pair_edge>> que;
+    que.emplace((dist[start] = 0), start);
 
-    while (!p_queue.empty())
+    while (!que.empty())
     {
-        const ll distance = p_queue.top().first;
-        const ll from = p_queue.top().second;
-        p_queue.pop();
+        const long long distance = que.top().first;
+        const int from = que.top().second;
+        que.pop();
 
-        // 最短距離でなければ処理しない
-        if (distances[from] < distance)
+        if (dist[from] < distance)
             continue;
 
-        // 現在の頂点からの各辺について
         for (const auto &edge : graph[from])
         {
-            // to までの新しい距離
-            const ll d = (distances[from] + edge.cost);
-
-            // d が現在の記録より小さければ更新
-            if (d < distances[edge.to])
-                p_queue.emplace((distances[edge.to] = d), edge.to);
+            if (chmin(dist[edge.to], dist[from] + edge.cost))
+            {
+                que.emplace(dist[edge.to], edge.to);
+            }
         }
     }
 }
 
-// ref : https://zenn.dev/reputeless/books/standard-cpp-for-competitive-programming/viewer/dijkstra
+int main()
+{
+    int N, M, start;
+    std::cin >> N >> M >> start;
+
+    Graph<Edge> G(N);
+    for (int i = 0; i < M; ++i)
+    {
+        int u, v;
+        long long cost;
+        std::cin >> u >> v >> cost;
+        G[u].push_back({v, cost});
+    }
+
+    std::vector<long long> dist(N, INFL);
+    Dijkstra(G, dist, start);
+
+    for (int i = 0; i < N; ++i)
+    {
+        if (dist[i] == INFL)
+            std::cout << "INF" << std::endl;
+        else
+            std::cout << dist[i] << std::endl;
+    }
+}
