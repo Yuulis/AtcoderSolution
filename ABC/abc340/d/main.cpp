@@ -116,11 +116,11 @@ struct Edge
 };
 
 using Graph = vector<vector<Edge>>;
-using Pair = pair<ll, ll>;
+using Pair_edge = pair<ll, ll>;
 
 void Dijkstra(const Graph &graph, vector<ll> &distances, ll startIndex)
 {
-    priority_queue<Pair, vector<Pair>, greater<Pair>> p_queue;
+    priority_queue<Pair_edge, vector<Pair_edge>, greater<Pair_edge>> p_queue;
     p_queue.emplace((distances[startIndex] = 0), startIndex);
 
     while (!p_queue.empty())

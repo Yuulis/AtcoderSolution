@@ -100,7 +100,7 @@ using Graph = vector<vector<T>>;
 
 // ======================================== //
 
-bool isPalindrome(string s)
+bool is_palindrome(std::string s)
 {
     int l = s.size();
     for (int i = 0; i < l / 2; i++)
@@ -119,7 +119,7 @@ int main()
     ll ans = 0;
     for (ll i = 1; i * i * i <= N; i++)
     {
-        if (isPalindrome(to_string(i * i * i)))
+        if (is_palindrome(to_string(i * i * i)))
             ans = i * i * i;
     }
 
