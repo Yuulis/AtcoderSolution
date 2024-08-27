@@ -110,25 +110,31 @@ int main()
 {
     int N;
     cin >> N;
-    
+
     int x = 0;
-    rep(i, 0, N) {
+    rep(i, 0, N)
+    {
         int A;
         cin >> A;
 
         int cnt = 0;
-        for (int j = 2; j * j <= A; j++) {
-            while (A % j == 0) {
+        for (int j = 2; j * j <= A; j++)
+        {
+            while (A % j == 0)
+            {
                 A /= j;
                 cnt++;
             }
         }
 
-        if (A != 1) cnt++;
+        if (A != 1)
+            cnt++;
 
         x ^= cnt;
     }
 
-    if (x == 0) cout << "Bruno" << endl;
-    else cout << "Anna" << endl;
+    if (x == 0)
+        cout << "Bruno" << endl;
+    else
+        cout << "Anna" << endl;
 }

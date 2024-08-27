@@ -108,10 +108,13 @@ inline auto mod(T1 x, T2 r) { return (x % r + r) % r; }
 
 void dfs(Graph<int> &G, set<int> &V, vector<int> &cnt, int now, int pre)
 {
-    if (V.count(now)) cnt[now]++;
+    if (V.count(now))
+        cnt[now]++;
 
-    for (auto &v : G[now]) {
-        if (v == pre) continue;
+    for (auto &v : G[now])
+    {
+        if (v == pre)
+            continue;
 
         dfs(G, V, cnt, v, now);
         cnt[now] += cnt[v];
@@ -123,14 +126,16 @@ int main()
     int N, K;
     cin >> N >> K;
     Graph<int> G(N);
-    rep(i, 0, N - 1) {
+    rep(i, 0, N - 1)
+    {
         int A, B;
         cin >> A >> B;
         G[A - 1].push_back(B - 1);
         G[B - 1].push_back(A - 1);
     }
     set<int> V;
-    rep(i, 0, K) {
+    rep(i, 0, K)
+    {
         int v;
         cin >> v;
         V.insert(v - 1);
@@ -140,8 +145,10 @@ int main()
     dfs(G, V, cnt, *V.begin(), -1);
 
     int ans = 0;
-    for (auto &x : cnt) {
-        if (x >= 1) ans++;
+    for (auto &x : cnt)
+    {
+        if (x >= 1)
+            ans++;
     }
 
     cout << ans << endl;
