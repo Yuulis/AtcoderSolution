@@ -108,8 +108,26 @@ inline auto mod(T1 x, T2 r) { return (x % r + r) % r; }
 
 int main()
 {
-    int N;
-    cin >> N;
+    int N, L, R;
+    cin >> N >> L >> R;
 
-    cout << N << endl;
+    rep(i, 0, N)
+    {
+        int A;
+        cin >> A;
+
+        if (A < L)
+        {
+            cout << L << " ";
+        }
+        else if (A > R)
+        {
+            cout << R << " ";
+        }
+        else
+        {
+            cout << A << " ";
+        }
+    }
+    cout << endl;
 }
