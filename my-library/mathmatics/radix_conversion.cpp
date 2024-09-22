@@ -15,7 +15,7 @@ int main()
 }
 
 // Arbitrary radix conversion
-std::string radix_conversion(const std::string x, const int from, const int to)
+std::string radix_conversion(const std::string& x, const int& from, const int& to)
 {
     // Conversion table.
     // To be changed as appropriate.
@@ -23,10 +23,7 @@ std::string radix_conversion(const std::string x, const int from, const int to)
     assert((2 <= from && from <= 16) && (2 <= to && to <= 16));
 
     unsigned long sum = 0;
-    for (char c : x)
-    {
-        sum = sum * from + table.find(c);
-    }
+    for (char c : x) sum = sum * from + table.find(c);
 
     std::string res = "";
     do
