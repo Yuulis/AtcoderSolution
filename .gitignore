@@ -9,3 +9,5 @@ ac-library/**
 *.out
 
 sandbox.cpp
+
+tools/**
