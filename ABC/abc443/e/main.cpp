@@ -27,62 +27,64 @@ string solve()
         }
     }
 
-    vector<int> status(N, -1);
-    status[C - 1] = 1;
+    vector<int> dp(N, -1);
+    dp[C - 1] = 1;
 
-    rrep(i, N - 1, 1)
+    rrep(i, N - 2, 0)
     {
-        vector<int> next_status(N, -1);
+        vector<int> next_dp(N, -1);
         bool is_reachable = false;
 
         rep(j, 0, N)
         {
-            if (status[j] == -1)
-                continue;
-
-            int current_status = -1;
-
             repe(dj, -1, 1)
             {
-                int ni = i - 1;
-                int nj = j + dj;
-                if (nj < 0 || nj >= N)
+                int pj = j + dj;
+                if (pj < 0 || pj >= N)
                     continue;
 
-                if (S[ni][nj] == '.')
+                if (dp[pj] == -1)
+                    continue;
+
+                int current_status = -1;
+
+                if (S[i][j] == '.')
                 {
-                    if (lowest_wall[nj] < i)
+                    if (i > lowest_wall[j])
                         current_status = 1;
-                    else if (nj == j)
-                        current_status = status[j];
+                    else if (pj == j)
+                        current_status = dp[j];
                     else
                         current_status = 0;
                 }
                 else
                 {
-                    if (lowest_wall[nj] < i)
+                    if (i == lowest_wall[j])
                         current_status = 1;
-                    else if (nj == j && status[j] == 1)
-                        current_status = 1;
-                    else
-                        current_status = -1;
+                    else if (i < lowest_wall[j])
+                    {
+                        if (pj == j && dp[pj] == 1)
+                            current_status = 1;
+                        else
+                            current_status = -1;
+                    }
                 }
 
                 if (current_status != -1)
                 {
-                    chmax(next_status[nj], current_status);
+                    chmax(next_dp[j], current_status);
                     is_reachable = true;
                 }
             }
         }
 
-        status = next_status;
+        dp = next_dp;
         if (!is_reachable)
             break;
     }
 
     string ans;
-    rep(j, 0, N) ans += (status[j] == -1 ? '0' : '1');
+    rep(j, 0, N) ans += (dp[j] == -1 ? '0' : '1');
 
     return ans;
 }
