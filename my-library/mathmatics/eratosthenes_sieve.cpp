@@ -1,34 +1,62 @@
-#include <bits/stdc++.h>
-using namespace std;
+/*
+ * Sieve of Eratosthenes — mark all primes up to N.
+ *
+ * Builds a boolean table is_prime[] of size N+1.
+ * is_prime[i] is true if and only if i is a prime number.
+ *
+ * Time complexity : O(N log log N).
+ * Space complexity: O(N).
+ *
+ * Typical use cases:
+ *   - Precomputing primes for range queries (ABC-C/D level).
+ *   - Counting primes up to N.
+ *   - Goldbach conjecture verification, prime-pair enumeration.
+ *
+ * Caveats:
+ *   - N must be set before calling sieve().
+ *   - For N > ~10^8 the memory may be tight (use bitset or segmented sieve).
+ *   - The original code had a bug: vector was sized with uninitialised N.
+ *     Fixed by taking N as a parameter and returning the table.
+ */
 
-#define rep(i, start, end) for (ll i = (start); i < (ll)(end); i++)
+#include <bits/stdc++.h>
+
+using namespace std;
 using ll = long long;
 
-ll N;
-vector<bool> v(N + 1, true);
+// Returns a boolean vector of size n+1.
+// result[i] == true  means i is prime.
+// result[0] and result[1] are always false.
+vector<bool> sieve(int n) {
+    vector<bool> is_prime(n + 1, true);
+    is_prime[0] = false;
+    if (n >= 1) is_prime[1] = false;
 
-void sieve()
-{
-    v[0] = false;
-    v[1] = false;
-    for (int i = 2; pow(i, 2) <= N; i++)
-    {
-        if (v[i])
-            for (int j = 2; i * j <= N; j++)
-                v[i * j] = false;
+    // Classic Eratosthenes: for each prime p, mark multiples p*2, p*3, ...
+    // We only need to check up to sqrt(n).
+    for (int i = 2; (ll)i * i <= n; i++) {
+        if (is_prime[i]) {
+            // Mark all multiples of i starting from 2*i.
+            for (int j = 2 * i; j <= n; j += i) {
+                is_prime[j] = false;
+            }
+        }
     }
+    return is_prime;
 }
 
-int main()
-{
-    // Determine prime numbers for integers less than or equal to N.
-    // If n is prime, v[n] = true; otherwise, v[n] = false.
-    sieve();
+// --- Minimal usage example ---
+int main() {
+    int N = 30;
+    vector<bool> is_prime = sieve(N);
 
-    // Example : Output prime numbers from 2 to 9.
-    rep(i, 2, 10)
-    {
-        if (v[i])
-            cout << i << endl;
+    // Output all primes up to N.
+    // Expected: 2 3 5 7 11 13 17 19 23 29
+    cout << "Primes up to " << N << ":";
+    for (int i = 2; i <= N; i++) {
+        if (is_prime[i]) cout << " " << i;
     }
+    cout << endl;
+
+    return 0;
 }
