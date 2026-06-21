@@ -1,0 +1,223 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "language": "japanese",
+  "effortLevel": "high",
+  "fastMode": false,
+  "alwaysThinkingEnabled": true,
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/agent-router.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/check-codex-before-write.py\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "WebSearch|WebFetch",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/suggest-gemini-research.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "TeammateIdle": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"feedback\": \"Before going idle: (1) Check the shared task list for pending tasks. If all tasks are complete, verify results. (2) IMPORTANT: Write your work log to .claude/logs/agent-teams/{team-name}/{your-teammate-name}.md if you have not done so yet. The work log must include: Summary, Tasks Completed, Files Modified, Key Decisions, Communication with Teammates, and Issues Encountered. (3) Report to the team lead.\"}}'"
+          }
+        ]
+      }
+    ],
+    "TaskCompleted": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/log-cli-tools.py\"",
+            "timeout": 5
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "matcher": "auto",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo '{\"hookSpecificOutput\": {\"additionalContext\": \"Context compaction triggered. Key context: Check CLAUDE.md for project rules, .claude/docs/DESIGN.md for design decisions, .claude/rules/ for coding standards.\"}}'"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Task",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/check-codex-after-plan.py\"",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/error-to-codex.py\"",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-test-analysis.py\"",
+            "timeout": 10
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/log-cli-tools.py\"",
+            "timeout": 5
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/lint-on-save.py\"",
+            "timeout": 30
+          },
+          {
+            "type": "command",
+            "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/hooks/post-implementation-review.py\"",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
+  "permissions": {
+    "allow": [
+      "Read(*)",
+      "Edit(*)",
+      "Write(*)",
+      "Glob(*)",
+      "Grep(*)",
+      "WebFetch(*)",
+      "WebSearch(*)",
+      "Task(*)",
+      "Skill(*)",
+      "TodoWrite(*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "Bash(grep:*)",
+      "Bash(head:*)",
+      "Bash(tail:*)",
+      "Bash(wc:*)",
+      "Bash(sort:*)",
+      "Bash(uniq:*)",
+      "Bash(diff:*)",
+      "Bash(echo:*)",
+      "Bash(pwd:*)",
+      "Bash(cd:*)",
+      "Bash(mkdir:*)",
+      "Bash(touch:*)",
+      "Bash(cp:*)",
+      "Bash(mv:*)",
+      "Bash(chmod:*)",
+      "Bash(git:*)",
+      "Bash(python:*)",
+      "Bash(python3:*)",
+      "Bash(uv:*)",
+      "Bash(ruff:*)",
+      "Bash(ty:*)",
+      "Bash(poe:*)",
+      "Bash(pytest:*)",
+      "Bash(node:*)",
+      "Bash(npm:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run dev:*)",
+      "Bash(npm run build:*)",
+      "Bash(npm run tsc:*)",
+      "Bash(npm run test:*)",
+      "Bash(npm run lint:*)",
+      "Bash(npm run format:*)",
+      "Bash(npm exec:*)",
+      "Bash(npm ls:*)",
+      "Bash(npx:*)",
+      "Bash(yarn:*)",
+      "Bash(pnpm:*)",
+      "Bash(bun:*)",
+      "Bash(curl:*)",
+      "Bash(wget:*)",
+      "Bash(jq:*)",
+      "Bash(sed:*)",
+      "Bash(awk:*)",
+      "Bash(xargs:*)",
+      "Bash(tree:*)",
+      "Bash(which:*)",
+      "Bash(type:*)",
+      "Bash(env:*)",
+      "Bash(export:*)",
+      "Bash(source:*)",
+      "Bash(docker:*)",
+      "Bash(docker-compose:*)",
+      "Bash(gemini:*)",
+      "Bash(codex:*)",
+      "Bash(pkill:*)",
+      "Bash(for:*)",
+      "Bash(do)",
+      "Bash(then)",
+      "Bash(else)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(true)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Read(./.env.*)",
+      "Read(./**/*.pem)",
+      "Read(./**/*.key)",
+      "Read(./**/credentials*)",
+      "Read(./**/*secret*)",
+      "Read(~/.ssh/**)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gcloud/**)",
+      "Bash(rm -rf /)",
+      "Bash(rm -rf ~)"
+    ]
+  },
+  "env": {
+    "EDITOR": "code --wait",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
+    "CLAUDE_CODE_SUBAGENT_MODEL": "claude-opus-4-6"
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "python3 \"$CLAUDE_PROJECT_DIR/.claude/statusline.py\""
+  }
+}
