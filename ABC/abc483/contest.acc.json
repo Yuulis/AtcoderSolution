@@ -1,0 +1,86 @@
+{
+  "contest": {
+    "id": "abc483",
+    "title": "AtCoder Beginner Contest 483",
+    "url": "https://atcoder.jp/contests/abc483"
+  },
+  "tasks": [
+    {
+      "id": "abc483_a",
+      "label": "A",
+      "title": "Double-Sided Printing",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc483_b",
+      "label": "B",
+      "title": "Flip Card Stack",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc483_c",
+      "label": "C",
+      "title": "Second Choice Election",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc483_d",
+      "label": "D",
+      "title": "Glitchy Robot",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc483_e",
+      "label": "E",
+      "title": "Typo Pairs",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc483_f",
+      "label": "F",
+      "title": "Sum of Mod of Linear",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc483_g",
+      "label": "G",
+      "title": "Qualification",
+      "url": "https://atcoder.jp/contests/abc483/tasks/abc483_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
