@@ -1,0 +1,86 @@
+{
+  "contest": {
+    "id": "abc480",
+    "title": "AtCoder Beginner Contest 480",
+    "url": "https://atcoder.jp/contests/abc480"
+  },
+  "tasks": [
+    {
+      "id": "abc480_a",
+      "label": "A",
+      "title": "ADjacent",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc480_b",
+      "label": "B",
+      "title": "Invalid Vote",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc480_c",
+      "label": "C",
+      "title": "Self-Stopping Shower",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc480_d",
+      "label": "D",
+      "title": "Concatenation of Prefixes",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc480_e",
+      "label": "E",
+      "title": "Product-Bounded Arithmetic Sequences",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc480_f",
+      "label": "F",
+      "title": "Cake Cutting",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc480_g",
+      "label": "G",
+      "title": "Zonal Score Minimization",
+      "url": "https://atcoder.jp/contests/abc480/tasks/abc480_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
