@@ -1,0 +1,86 @@
+{
+  "contest": {
+    "id": "abc484",
+    "title": "AtCoder Beginner Contest 484",
+    "url": "https://atcoder.jp/contests/abc484"
+  },
+  "tasks": [
+    {
+      "id": "abc484_a",
+      "label": "A",
+      "title": "Chocolate Bar Count",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_a",
+      "directory": {
+        "path": "a",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc484_b",
+      "label": "B",
+      "title": "Nineball ",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_b",
+      "directory": {
+        "path": "b",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc484_c",
+      "label": "C",
+      "title": "Move One Card",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_c",
+      "directory": {
+        "path": "c",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc484_d",
+      "label": "D",
+      "title": "Move One Card Left",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_d",
+      "directory": {
+        "path": "d",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc484_e",
+      "label": "E",
+      "title": "Subsegment Sum Finder",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_e",
+      "directory": {
+        "path": "e",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc484_f",
+      "label": "F",
+      "title": "Make them monochrome",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_f",
+      "directory": {
+        "path": "f",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    },
+    {
+      "id": "abc484_g",
+      "label": "G",
+      "title": "Wildcard Construction",
+      "url": "https://atcoder.jp/contests/abc484/tasks/abc484_g",
+      "directory": {
+        "path": "g",
+        "testdir": "test",
+        "submit": "main.cpp"
+      }
+    }
+  ]
+}
